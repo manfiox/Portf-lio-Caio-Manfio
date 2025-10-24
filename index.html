@@ -146,8 +146,12 @@
 
         /* Mobile-focused improvements */
         @media (max-width: 767px) {
+
             /* Ensure hero title is not too large on small devices */
-            .hero-title-mobile { font-size: 1.75rem; /* ~28px */ }
+            .hero-title-mobile {
+                font-size: 1.75rem;
+                /* ~28px */
+            }
         }
 
         /* Focus ring for interactive elements */
@@ -161,24 +165,50 @@
         .mobile-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.45);
+            background: rgba(0, 0, 0, 0.45);
             opacity: 0;
             transition: opacity 360ms ease-in-out;
             pointer-events: none;
             z-index: 30;
         }
-        .mobile-overlay.show { opacity: 1; pointer-events: auto; }
 
-        .mobile-drawer { transform: translateY(-12px); opacity: 0; transition: transform 420ms cubic-bezier(.2,.9,.2,1), opacity 420ms ease-in-out; }
-        .mobile-drawer.show { transform: translateY(0); opacity: 1; }
-        
+        .mobile-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-drawer {
+            transform: translateY(-12px);
+            opacity: 0;
+            transition: transform 420ms cubic-bezier(.2, .9, .2, 1), opacity 420ms ease-in-out;
+        }
+
+        .mobile-drawer.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
         /* Page entrance animation (fade + slide up) */
-    .enterable { opacity: 0; transform: translateY(18px); transition: opacity 700ms ease, transform 700ms cubic-bezier(.2,.9,.2,1); will-change: opacity, transform; }
-    .enterable.show { opacity: 1; transform: translateY(0); }
+        .enterable {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 700ms ease, transform 700ms cubic-bezier(.2, .9, .2, 1);
+            will-change: opacity, transform;
+        }
+
+        .enterable.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* Respect user's reduced motion preference */
         @media (prefers-reduced-motion: reduce) {
-            .enterable, .enterable.show { transition: none !important; transform: none !important; }
+
+            .enterable,
+            .enterable.show {
+                transition: none !important;
+                transform: none !important;
+            }
         }
     </style>
 </head>
@@ -231,7 +261,8 @@
                         <i data-feather="moon"></i>
                         <i data-feather="sun" class="hidden"></i>
                     </button>
-                    <button type="button" class="md:hidden mr-2 p-2 rounded-md focus-ring" id="mobileMenuButton" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+                    <button type="button" class="md:hidden mr-2 p-2 rounded-md focus-ring" id="mobileMenuButton"
+                        aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
                         <span class="sr-only">Abrir menu</span>
                         <i data-feather="menu" aria-hidden="true"></i>
                     </button>
@@ -239,7 +270,8 @@
                         class="hidden md:block bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg transition">Contratar</a>
                     <!-- CV download button (mesmo tamanho do botão 'Contratar') -->
                     <a href="Curriculo-CaioManfio.pdf" download
-                        class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg transition ml-2" aria-label="Baixar currículo em PDF">Currículo</a>
+                        class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg transition ml-2"
+                        aria-label="Baixar currículo em PDF">Currículo</a>
                 </div>
             </div>
 
@@ -247,19 +279,29 @@
             <div id="mobileMenuOverlay" class="mobile-overlay hidden" aria-hidden="true"></div>
 
             <!-- Mobile menu -->
-            <div id="mobileMenu" class="hidden md:hidden mt-2 pb-4 absolute left-0 right-0 top-full bg-white shadow-md z-40 p-4 rounded-b-lg mobile-drawer" role="menu" aria-label="Menu principal">
+            <div id="mobileMenu"
+                class="hidden md:hidden mt-2 pb-4 absolute left-0 right-0 top-full bg-white shadow-md z-40 p-4 rounded-b-lg mobile-drawer"
+                role="menu" aria-label="Menu principal">
                 <div class="flex items-center justify-between mb-3">
                     <div class="text-lg font-semibold">Menu</div>
-                    <button type="button" id="mobileMenuClose" class="p-2 rounded-md focus-ring" aria-label="Fechar menu">
+                    <button type="button" id="mobileMenuClose" class="p-2 rounded-md focus-ring"
+                        aria-label="Fechar menu">
                         <i data-feather="x" aria-hidden="true"></i>
                     </button>
                 </div>
                 <div class="flex flex-col space-y-3">
-                    <a href="#sobre" class="w-full block text-center py-3 rounded-lg hover:bg-primary-50 focus-ring" role="menuitem">Sobre</a>
-                    <a href="#habilidades" class="w-full block text-center py-3 rounded-lg hover:bg-primary-50 focus-ring" role="menuitem">Habilidades</a>
-                    <a href="#projetos" class="w-full block text-center py-3 rounded-lg hover:bg-primary-50 focus-ring" role="menuitem">Projetos</a>
-                    <a href="#contato" class="w-full block text-center py-3 rounded-lg hover:bg-primary-50 focus-ring" role="menuitem">Contato</a>
-                    <a href="#contato" class="w-full block text-center py-3 rounded-lg bg-primary-500 text-white hover:bg-primary-600 focus-ring" role="menuitem">Contratar</a>
+                    <a href="#sobre" class="w-full block text-center py-3 rounded-lg hover:bg-primary-50 focus-ring"
+                        role="menuitem">Sobre</a>
+                    <a href="#habilidades"
+                        class="w-full block text-center py-3 rounded-lg hover:bg-primary-50 focus-ring"
+                        role="menuitem">Habilidades</a>
+                    <a href="#projetos" class="w-full block text-center py-3 rounded-lg hover:bg-primary-50 focus-ring"
+                        role="menuitem">Projetos</a>
+                    <a href="#contato" class="w-full block text-center py-3 rounded-lg hover:bg-primary-50 focus-ring"
+                        role="menuitem">Contato</a>
+                    <a href="#contato"
+                        class="w-full block text-center py-3 rounded-lg bg-primary-500 text-white hover:bg-primary-600 focus-ring"
+                        role="menuitem">Contratar</a>
                 </div>
             </div>
         </div>
@@ -269,7 +311,8 @@
         <!-- Hero Section -->
         <section class="py-20 md:py-32 bg-gradient-to-r from-primary-500 to-secondary-500 text-white">
             <div class="container mx-auto px-6 text-center">
-                <h1 class="hero-title-mobile text-3xl md:text-6xl font-bold mb-6">Transformando ideias em soluções digitais</h1>
+                <h1 class="hero-title-mobile text-3xl md:text-6xl font-bold mb-6">Transformando ideias em soluções
+                    digitais</h1>
                 <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Desenvolvedor web e aspirante em automação e
                     inteligência artificial, apaixonado por tecnologia e inovação.</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -277,7 +320,8 @@
                         class="bg-white text-primary-500 hover:bg-gray-100 px-6 py-3 rounded-lg font-medium transition focus-ring">Ver
                         Portfólio</a>
                     <a href="Curriculo-CaioManfio.pdf" download
-                        class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-500 px-6 py-3 rounded-lg font-medium transition focus-ring" aria-label="Baixar currículo">Baixar CV</a>
+                        class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-500 px-6 py-3 rounded-lg font-medium transition focus-ring"
+                        aria-label="Baixar currículo">Baixar CV</a>
                 </div>
             </div>
         </section>
@@ -1122,7 +1166,7 @@
         // Mobile menu toggle (safe)
         const mobileMenuButton = document.getElementById('mobileMenuButton');
         const mobileMenu = document.getElementById('mobileMenu');
-    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
         if (mobileMenuButton && mobileMenu) {
             // set ARIA attributes
             mobileMenuButton.setAttribute('aria-expanded', 'false');
@@ -1138,7 +1182,7 @@
                     if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('hidden');
                     mobileMenuButton.setAttribute('aria-expanded', 'true');
                     // Focus no primeiro item do menu para acessibilidade
-                    try { 
+                    try {
                         const first = mobileMenu.querySelector('a[role="menuitem"]');
                         if (first) first.focus();
                     } catch (e) { /* ignore */ }
