@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caio Manfio | Desenvolvedor Web & Automação</title>
+    <meta name="description"
+        content="Portfólio de Caio Manfio, desenvolvedor web especializado em automação e inteligência artificial. Confira meus projetos e habilidades.">
+    <link rel="canonical" href="https://seu-dominio.com/">
+    <meta name="theme-color" content="#2563eb">
+    <meta property="og:title" content="Caio Manfio | Desenvolvedor Web & Automação">
+    <meta property="og:description"
+        content="Portfólio profissional com projetos em desenvolvimento web e automação inteligente.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://seu-dominio.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@seu_usuario">
+
+    <!-- Performance: preconnects -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                        },
+                        secondary: {
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            font-family: 'Inter', sans-serif;
+            --primary-500: #2563eb;
+            --primary-600: #1d4ed8;
+            --secondary-500: #14b8a6;
+            --secondary-600: #0d9488;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .dark-mode {
+            background-color: #182030;
+            color: #e6eef8;
+        }
+
+        .dark-mode .bg-white {
+            background-color: #000000 !important;
+        }
+
+        .dark-mode .text-gray-800 {
+            color: #f8fafc !important;
+        }
+
+        .dark-mode .border-gray-200 {
+            border-color: #334155 !important;
+        }
+
+        /* Improve contrast for common utility classes in dark mode */
+        .dark-mode .text-gray-600 {
+            color: #cbd5e1 !important;
+        }
+
+        .dark-mode .text-gray-400 {
+            color: #94a3b8 !important;
+        }
+
+        .dark-mode .bg-gray-50 {
+            background-color: #0f1724 !important;
+        }
+
+        .dark-mode .bg-gray-100 {
+            background-color: #0f2436 !important;
+        }
+
+        .dark-mode .bg-primary-100 {
+            background-color: rgba(37, 99, 235, 0.08) !important;
+            color: var(--primary-500) !important;
+        }
+
+        .dark-mode .text-secondary-500 {
+            color: var(--secondary-500) !important;
+        }
+
+        /* Make feather icons follow current text color in dark mode */
+        .dark-mode svg {
+            stroke: currentColor !important;
+            fill: none !important;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+        }
+
+        /* Tech badge style: mantém as tecnologias dentro de pequenos quadradinhos */
+        .tech-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 1.75rem;
+            /* consistent height */
+            background-color: rgba(37, 99, 235, 0.08);
+            /* primary-100 equivalent */
+            color: var(--primary-500);
+            font-size: 0.675rem;
+            /* text-xs */
+            padding: 0 0.5rem;
+            /* horizontal padding only */
+            border-radius: 0.375rem;
+            /* rounded */
+            line-height: 1;
+            white-space: nowrap;
+            margin: 0;
+            /* remove inline margins */
+        }
+
+        /* Ensure the container aligns badges vertically */
+        .flex.flex-wrap.gap-2.mt-2 {
+            display: flex !important;
+            align-items: center;
+            gap: 0.5rem !important;
+        }
+
+        /* Mobile-focused improvements */
+        @media (max-width: 767px) {
+            /* Ensure hero title is not too large on small devices */
+            .hero-title-mobile { font-size: 1.75rem; /* ~28px */ }
+        }
+
+        /* Focus ring for interactive elements */
+        .focus-ring:focus-visible {
+            outline: 3px solid rgba(37, 99, 235, 0.35);
+            outline-offset: 2px;
+            border-radius: 0.5rem;
+        }
+
+        /* Overlay and drawer animation for mobile menu */
+        .mobile-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            opacity: 0;
+            transition: opacity 360ms ease-in-out;
+            pointer-events: none;
+            z-index: 30;
+        }
+        .mobile-overlay.show { opacity: 1; pointer-events: auto; }
+
+        .mobile-drawer { transform: translateY(-12px); opacity: 0; transition: transform 420ms cubic-bezier(.2,.9,.2,1), opacity 420ms ease-in-out; }
+        .mobile-drawer.show { transform: translateY(0); opacity: 1; }
+        
+        /* Page entrance animation (fade + slide up) */
+    .enterable { opacity: 0; transform: translateY(18px); transition: opacity 700ms ease, transform 700ms cubic-bezier(.2,.9,.2,1); will-change: opacity, transform; }
+    .enterable.show { opacity: 1; transform: translateY(0); }
+
+        /* Respect user's reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .enterable, .enterable.show { transition: none !important; transform: none !important; }
+        }
+    </style>
+</head>
+<!-- Structured data -->
+<script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Person",
+                    "name": "Caio Manfio",
+                    "url": "https://seu-dominio.com",
+                    "sameAs": [
+                        "https://github.com/manfiox",
+                        "https://www.linkedin.com/in/caio-manfio-16971437b/"
+                    ],
+                    "jobTitle": "Desenvolvedor Web & Automação"
+                },
+                {
+                    "@type": "WebSite",
+                    "url": "https://seu-dominio.com",
+                    "name": "Portfólio - Caio Manfio"
+                }
+            ]
+        }
+        </script>
+
+<body class="bg-gray-50 text-gray-800 transition-colors duration-300">
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only">Pular para o conteúdo principal</a>
+
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-xl font-bold text-primary-500">Caio Manfio</div>
+
+                <nav class="hidden md:flex space-x-8" role="navigation" aria-label="Navegação principal">
+                    <a href="#sobre" class="hover:text-primary-500 transition">Sobre</a>
+                    <a href="#habilidades" class="hover:text-primary-500 transition">Habilidades</a>
+                    <a href="#projetos" class="hover:text-primary-500 transition">Projetos</a>
+                    <a href="#contato" class="hover:text-primary-500 transition">Contato</a>
+                </nav>
+
+                <div class="flex items-center space-x-4">
+                    <button type="button" id="darkModeToggle" class="p-2 rounded-full hover:bg-gray-100"
+                        aria-label="Alternar tema claro/escuro">
+                        <!-- Mostrar a lua por padrão (modo claro) e manter o sol escondido. JS tornará a seleção robusta
+                             para funcionar com elementos <i data-feather> ou SVGs gerados pela biblioteca Feather. -->
+                        <i data-feather="moon"></i>
+                        <i data-feather="sun" class="hidden"></i>
+                    </button>
+                    <button type="button" class="md:hidden mr-2 p-2 rounded-md focus-ring" id="mobileMenuButton" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+                        <span class="sr-only">Abrir menu</span>
+                        <i data-feather="menu" aria-hidden="true"></i>
+                    </button>
+                    <a href="#contato"
+                        class="hidden md:block bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg transition">Contratar</a>
+                    <!-- CV download button (mesmo tamanho do botão 'Contratar') -->
+                    <a href="Curriculo-CaioManfio.pdf" download
+                        class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg transition ml-2" aria-label="Baixar currículo em PDF">Currículo</a>
+                </div>
+            </div>
+
+            <!-- Overlay para drawer mobile -->
+            <div id="mobileMenuOverlay" class="mobile-overlay hidden" aria-hidden="true"></div>
+
+            <!-- Mobile menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-2 pb-4 absolute left-0 right-0 top-full bg-white shadow-md z-40 p-4 rounded-b-lg mobile-drawer" role="menu" aria-label="Menu principal">
+                <div class="flex items-center justify-between mb-3">
+                    <div class="text-lg font-semibold">Menu</div>
+                    <button type="button" id="mobileMenuClose" class="p-2 rounded-md focus-ring" aria-label="Fechar menu">
+                        <i data-feather="x" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-3">
+                    <a href="#sobre" class="w-full block text-center py-3 rounded-lg hover:bg-primary-50 focus-ring" role="menuitem">Sobre</a>
+                    <a href="#habilidades" class="w-full block text-center py-3 rounded-lg hover:bg-primary-50 focus-ring" role="menuitem">Habilidades</a>
+                    <a href="#projetos" class="w-full block text-center py-3 rounded-lg hover:bg-primary-50 focus-ring" role="menuitem">Projetos</a>
+                    <a href="#contato" class="w-full block text-center py-3 rounded-lg hover:bg-primary-50 focus-ring" role="menuitem">Contato</a>
+                    <a href="#contato" class="w-full block text-center py-3 rounded-lg bg-primary-500 text-white hover:bg-primary-600 focus-ring" role="menuitem">Contratar</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="py-20 md:py-32 bg-gradient-to-r from-primary-500 to-secondary-500 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="hero-title-mobile text-3xl md:text-6xl font-bold mb-6">Transformando ideias em soluções digitais</h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Desenvolvedor web e aspirante em automação e
+                    inteligência artificial, apaixonado por tecnologia e inovação.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#projetos"
+                        class="bg-white text-primary-500 hover:bg-gray-100 px-6 py-3 rounded-lg font-medium transition focus-ring">Ver
+                        Portfólio</a>
+                    <a href="Curriculo-CaioManfio.pdf" download
+                        class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-500 px-6 py-3 rounded-lg font-medium transition focus-ring" aria-label="Baixar currículo">Baixar CV</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="depoimentos" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold mb-8 text-center">O que dizem sobre mim</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <p class="text-gray-700 mb-4">"O Caio entregou o site da nossa academia com qualidade e atenção
+                            aos
+                            detalhes. Ótimo profissional e rápido nas entregas."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-gray-200 rounded-full"></div>
+                            <div>
+                                <div class="font-semibold">Fernando</div>
+                                <div class="text-sm text-gray-500">Proprietário - Academia</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <p class="text-gray-700 mb-4">"Excelente entendimento técnico e comunicação clara. Recomendado
+                            para
+                            projetos com automação e integrações."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-gray-200 rounded-full"></div>
+                            <div>
+                                <div class="font-semibold">Cláudio Souza</div>
+                                <div class="text-sm text-gray-500">Mentor</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- About Section -->
+        <section id="sobre" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold mb-6">Sobre Mim</h2>
+                        <p class="text-lg mb-6">
+                            Sou um jovem desenvolvedor apaixonado por tecnologia, inovação e automação. Busco uma
+                            oportunidades em Desenvolvimento de Sistemas onde eu possa aplicar minha especialidade em
+                            desenvolvimento web e meu interesse crescente por Inteligência Artificial, n8n e Machine
+                            Learning.
+                        </p>
+                        <p class="text-lg mb-6">
+                            Tenho uma forte curiosidade tecnológica, aprendo com rapidez e gosto de explorar soluções
+                            criativas para otimizar processos e transformar ideias em resultados.
+                        </p>
+                        <p class="text-lg">
+                            Meu propósito é construir uma carreira sólida na área de tecnologia, tornando-me um
+                            desenvolvedor full stack inovador, com foco em automação inteligente e IA aplicada ao
+                            mercado.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="bg-gray-100 p-8 rounded-xl">
+                            <h3 class="text-2xl font-bold mb-4">Formação Acadêmica</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-semibold">ETEC – Prof° Elias Miguel Júnior</h4>
+                                    <p>Técnico em Desenvolvimento de Sistemas (Integrado ao Ensino Médio) – 1º Ano
+                                        (2025)</p>
+                                    <p class="text-sm text-gray-600 mt-1">Projeto AMS (ETEC → FATEC) Programa de
+                                        aceleração acadêmica com ingresso direto no ensino superior em tecnologia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="habilidades" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold mb-12 text-center">Minhas Habilidades</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Technical Skills -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i data-feather="code"></i>
+                            <span>Habilidades Técnicas</span>
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>HTML</span>
+                                    <span>Intermediário/Avançado</span>
+                                </div>
+                                <li class="flex items-start gap-2">
+
+
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-primary-500 h-2.5 rounded-full" style="width: 85%"></div>
+                                    </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>CSS</span>
+                                    <span>Intermediário/Avançado</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-primary-500 h-2.5 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>UI/UX</span>
+                                    <span>Avançado</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-primary-500 h-2.5 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>JavaScript</span>
+                                    <span>Intermediário</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-primary-500 h-2.5 rounded-full" style="width: 65%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>TypeScript</span>
+                                    <span>Intermediário</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-primary-500 h-2.5 rounded-full" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Python</span>
+                                    <span>Intermediário</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-primary-500 h-2.5 rounded-full" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>C#</span>
+                                    <span>Básico</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-primary-500 h-2.5 rounded-full" style="width: 30%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>PHP</span>
+                                    <span>Básico</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-primary-500 h-2.5 rounded-full" style="width: 30%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Automation & Tools -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i data-feather="cpu"></i>
+                            <span>Automação & Ferramentas</span>
+                        </h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center gap-2">
+                                <i data-feather="zap"></i>
+                                <span>n8n</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="activity"></i>
+                                <span>OpenAI API</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="box"></i>
+                                <span>Machine Learning</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="code"></i>
+                                <span>Node.js</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="file-text"></i>
+                                <span>TypeScript</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="server"></i>
+                                <span>Express / Socket.IO</span>
+                            </div>
+                            <!-- PostgreSQL and Redis removed per request -->
+                            <div class="flex items-center gap-2">
+                                <i data-feather="box"></i>
+                                <span>Docker</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="git-branch"></i>
+                                <span>Git</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="code"></i>
+                                <span>HTML5</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="layout"></i>
+                                <span>CSS3</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="play-circle"></i>
+                                <span>JavaScript (puro/vanilla)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="columns"></i>
+                                <span>Bootstrap 5</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="type"></i>
+                                <span>Google Fonts</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="image"></i>
+                                <span>SVG</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="layers"></i>
+                                <span>LLaMA 3</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="music"></i>
+                                <span>Material Symbols (Google)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="repeat"></i>
+                                <span>AOS (Animate On Scroll)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="smartphone"></i>
+                                <span>Meta viewport</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="mt-8 bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="user"></i>
+                        <span>Soft Skills</span>
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="flex items-center gap-2">
+                            <i data-feather="message-circle" class="text-secondary-500"></i>
+                            <span>Comunicação clara</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-feather="users" class="text-secondary-500"></i>
+                            <span>Trabalho em equipe</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-feather="zap" class="text-secondary-500"></i>
+                            <span>Resolução de problemas</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-feather="trending-up" class="text-secondary-500"></i>
+                            <span>Proatividade</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-feather="shield" class="text-secondary-500"></i>
+                            <span>Autonomia</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-feather="calendar" class="text-secondary-500"></i>
+                            <span>Gestão de tempo e organização</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-feather="repeat" class="text-secondary-500"></i>
+                            <span>Capacidade de receber e dar feedback</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-feather="corner-down-right" class="text-secondary-500"></i>
+                            <span>Adaptabilidade a mudanças</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-feather="search" class="text-secondary-500"></i>
+                            <span>Pensamento crítico</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-feather="eye" class="text-secondary-500"></i>
+                            <span>Atenção aos detalhes</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-feather="book-open" class="text-secondary-500"></i>
+                            <span>Aprendizado contínuo</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-feather="heart" class="text-secondary-500"></i>
+                            <span>Empatia</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-feather="user" class="text-secondary-500"></i>
+                            <span>Humildade</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projetos" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold mb-12 text-center">Meus Projetos</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-sm project-card transition duration-300">
+                        <div
+                            class="bg-primary-100 text-primary-500 p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                            <i data-feather="globe"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Sites Comerciais</h3>
+                        <p class="text-gray-600 mb-4">Criação de sites completos e responsivos para academias,
+                            agropecuárias, farmácias, marmitarias, pet shops, restaurantes e outros negócios locais.</p>
+                        <div class="mb-4">
+                            <span class="text-sm font-medium">Tecnologias:</span>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="tech-badge">HTML5</span>
+                                <span class="tech-badge">CSS3</span>
+                                <span class="tech-badge">JavaScript (puro/vanilla)</span>
+                                <span class="tech-badge">Bootstrap 5</span>
+                                <span class="tech-badge">Google Fonts</span>
+                                <span class="tech-badge">Material Symbols (Google)</span>
+                                <span class="tech-badge">AOS (Animate On Scroll)</span>
+                                <span class="tech-badge">SVG</span>
+                                <span class="tech-badge">Meta viewport</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 mt-2">
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="bg-primary-500 hover:bg-primary-600 text-white px-3 py-2 rounded-lg text-sm"
+                                aria-label="Ver demo Sites Comerciais">Ver demo</a>
+                            <a href="https://github.com/manfiox" target="_blank" rel="noopener noreferrer"
+                                class="bg-transparent border border-primary-500 text-primary-500 px-3 py-2 rounded-lg text-sm hover:bg-primary-50"
+                                aria-label="Ver código no GitHub">Ver no GitHub</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-sm project-card transition duration-300">
+                        <div
+                            class="bg-primary-100 text-primary-500 p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                            <i data-feather="code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">KorpuzBot</h3>
+                        <p class="text-gray-600 mb-4">KorpuzBot é um personal trainer virtual acadêmico que democratiza
+                            o acesso à saúde e ao fitness, gerando planos de treino e dieta personalizados a partir dos
+                            dados do usuário (idade, peso, altura, objetivos e nível). É gratuito, responsivo e integra
+                            tecnologias como OpenAI API, Redis e Docker para automação e escalabilidade.</p>
+                        <div class="mb-4">
+                            <span class="text-sm font-medium">Tecnologias:</span>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="tech-badge">HTML5</span>
+                                <span class="tech-badge">CSS3</span>
+                                <span class="tech-badge">JavaScript (puro/vanilla)</span>
+                                <span class="tech-badge">Bootstrap 5</span>
+                                <span class="tech-badge">Google Fonts</span>
+                                <span class="tech-badge">Material Symbols (Google)</span>
+                                <span class="tech-badge">AOS (Animate On Scroll)</span>
+                                <span class="tech-badge">SVG</span>
+                                <span class="tech-badge">Meta viewport</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 mt-2">
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="bg-primary-500 hover:bg-primary-600 text-white px-3 py-2 rounded-lg text-sm"
+                                aria-label="Visitar KorpuzBot">Visitar site</a>
+                            <a href="https://github.com/manfiox/Korpuz-FitBot-Startup-Explorer-Hackteen" target="_blank"
+                                rel="noopener noreferrer"
+                                class="bg-transparent border border-primary-500 text-primary-500 px-3 py-2 rounded-lg text-sm hover:bg-primary-50"
+                                aria-label="Ver KorpuzBot no GitHub">Ver no GitHub</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-sm project-card transition duration-300">
+                        <div
+                            class="bg-primary-100 text-primary-500 p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                            <!-- WhatsApp filled icon (uses fill=currentColor for correct coloring in dark mode) -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor" aria-hidden="true" class="whatsapp-logo">
+                                <path
+                                    d="M21.56 2.44A11.93 11.93 0 0012 .5C6.03.5 1 5.53 1 11.5c0 2.01.53 3.9 1.53 5.56L1 23l6.2-1.62A11.93 11.93 0 0012 23.5c5.97 0 10.99-4.98 10.99-11 0-2.93-1.09-5.61-3.43-7.99z" />
+                                <path
+                                    d="M17.3 14.3c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15s-.77.97-.95 1.17c-.18.2-.36.22-.66.07-.3-.15-1.27-.47-2.42-1.48-.9-.8-1.5-1.8-1.68-2.1-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.29.3-.48.1-.18.05-.34-.02-.48-.07-.15-.67-1.6-.92-2.2-.24-.58-.48-.5-.66-.5-.17 0-.36-.02-.55-.02s-.48.07-.73.35c-.26.28-1 1-1 2.45s1.03 2.86 1.17 3.06c.13.2 2.02 3.18 4.9 4.46 2.4 1.1 2.4.73 2.83.68.4-.05 1.29-.53 1.47-1.04.18-.52.18-.97.13-1.04-.05-.07-.18-.11-.37-.2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Chatbot Empresarial</h3>
+                        <p class="text-gray-600 mb-4">Chatbot que sabe tudo sobre determinada empresa, desenvolvido para
+                            automatizar atendimento e informações corporativas.</p>
+                        <div class="mb-4">
+                            <span class="text-sm font-medium">Tecnologias:</span>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="tech-badge">HTML5</span>
+                                <span class="tech-badge">CSS3</span>
+                                <span class="tech-badge">JavaScript (puro/vanilla)</span>
+                                <span class="tech-badge">Bootstrap 5</span>
+                                <span class="tech-badge">Google Fonts</span>
+                                <span class="tech-badge">Material Symbols (Google)</span>
+                                <span class="tech-badge">AOS (Animate On Scroll)</span>
+                                <span class="tech-badge">SVG</span>
+                                <span class="tech-badge">Meta viewport</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 mt-2">
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="bg-primary-500 hover:bg-primary-600 text-white px-3 py-2 rounded-lg text-sm"
+                                aria-label="Ver demo Chatbot Empresarial">Ver demo</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="bg-transparent border border-primary-500 text-primary-500 px-3 py-2 rounded-lg text-sm hover:bg-primary-50"
+                                aria-label="Ver Chatbot Empresarial no GitHub">Ver no GitHub</a>
+                        </div>
+                    </div>
+
+                    <!-- New Project: Sites comerciais com IA integrado -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-sm project-card transition duration-300">
+                        <div
+                            class="bg-primary-100 text-primary-500 p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                            <i data-feather="shopping-bag"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Sites comerciais com IA integrado</h3>
+                        <p class="text-gray-600 mb-4">Desenvolvo sites comerciais que integram agentes de IA para
+                            atendimento ao cliente, recomendação de produtos, personalização de conteúdo e automação de
+                            vendas, melhorando conversão e experiência do usuário.</p>
+                        <div class="mb-4">
+                            <span class="text-sm font-medium">Tecnologias:</span>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="tech-badge">HTML5</span>
+                                <span class="tech-badge">CSS3</span>
+                                <span class="tech-badge">JavaScript</span>
+                                <span class="tech-badge">Node.js</span>
+                                <span class="tech-badge">OpenAI API</span>
+                                <span class="tech-badge">n8n</span>
+                                <span class="tech-badge">Docker</span>
+                                <span class="tech-badge">Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-sm project-card transition duration-300">
+                        <div
+                            class="bg-primary-100 text-primary-500 p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                            <i data-feather="users"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Hackteen 2025</h3>
+                        <p class="text-gray-600 mb-4">Participação em equipe de desenvolvimento, propondo soluções
+                            tecnológicas inovadoras para desafios reais.</p>
+                        <div class="mb-4">
+                            <span class="text-sm font-medium">Tecnologias:</span>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="tech-badge">HTML5</span>
+                                <span class="tech-badge">CSS3</span>
+                                <span class="tech-badge">JavaScript (puro/vanilla)</span>
+                                <span class="tech-badge">Bootstrap 5</span>
+                                <span class="tech-badge">Google Fonts</span>
+                                <span class="tech-badge">Material Symbols (Google)</span>
+                                <span class="tech-badge">AOS (Animate On Scroll)</span>
+                                <span class="tech-badge">SVG</span>
+                                <span class="tech-badge">Meta viewport</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-sm project-card transition duration-300">
+                        <div
+                            class="bg-primary-100 text-primary-500 p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                            <i data-feather="zap"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Automação com n8n</h3>
+                        <p class="text-gray-600 mb-4">Desenvolvimento de aplicações web integradas com IA e automação
+                            via n8n, explorando fluxos inteligentes e aprendizado de máquina.</p>
+                        <div class="mb-4">
+                            <span class="text-sm font-medium">Tecnologias:</span>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="tech-badge">HTML5</span>
+                                <span class="tech-badge">CSS3</span>
+                                <span class="tech-badge">JavaScript (puro/vanilla)</span>
+                                <span class="tech-badge">Bootstrap 5</span>
+                                <span class="tech-badge">Google Fonts</span>
+                                <span class="tech-badge">Material Symbols (Google)</span>
+                                <span class="tech-badge">AOS (Animate On Scroll)</span>
+                                <span class="tech-badge">SVG</span>
+                                <span class="tech-badge">Meta viewport</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold mb-12 text-center">Diferenciais</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i data-feather="award"></i>
+                            <span>Experiência Prática</span>
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-2">
+                                <i data-feather="check" class="text-secondary-500 mt-1"></i>
+                                <span>Experiência prática em projetos reais de sites para comércios</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-feather="check" class="text-secondary-500 mt-1"></i>
+                                <span>Envolvimento com Inteligência Artificial e automação de processos (n8n)</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-feather="check" class="text-secondary-500 mt-1"></i>
+                                <span>Afiliado aos programas de parceria GFT e Venturus (ETEC)</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-feather="check" class="text-secondary-500 mt-1"></i>
+                                <span>Participante do Hackteen 2025</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-feather="check" class="text-secondary-500 mt-1"></i>
+                                <span>Interesse em seguir carreira em automação inteligente e IA aplicada a
+                                    negócios</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-feather="check" class="text-secondary-500 mt-1"></i>
+                                <span>Desenvolvimento do site completo do KorpuzBot — SPA responsiva, integração com
+                                    backend em Node.js/TypeScript, autenticação simples, e deploy em Docker.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-feather="check" class="text-secondary-500 mt-1"></i>
+                                <span>Integrações e automações do KorpuzBot — OpenAI para geração de rotinas, webhooks
+                                    para processos assíncronos, caching com Redis e pipelines de dados para
+                                    personalização.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-feather="check" class="text-secondary-500 mt-1"></i>
+                                <span>Sites com agentes de IA integrado — desenvolvimento de chatbots, recomendadores de
+                                    produto e experiências personalizadas para lojas e serviços locais.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-feather="check" class="text-secondary-500 mt-1"></i>
+                                <span>Processo completo de entrega — prototipagem (Figma), desenvolvimento
+                                    frontend/back-end, integração contínua (CI), deploy e monitoramento (analytics,
+                                    logs).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-feather="check" class="text-secondary-500 mt-1"></i>
+                                <span>Foco em resultados práticos — otimização de performance, SEO básico, e estratégias
+                                    para aumentar conversão e engajamento.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i data-feather="clock"></i>
+                            <span>Disponibilidade</span>
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-2">
+                                <i data-feather="check" class="text-secondary-500 mt-1"></i>
+                                <span>Preferência por trabalho remoto</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-feather="check" class="text-secondary-500 mt-1"></i>
+                                <span>Horário flexível, conciliando com os estudos</span>
+                            </li>
+                        </ul>
+
+                        <h3 class="text-xl font-bold mt-8 mb-4 flex items-center gap-2">
+                            <i data-feather="tool"></i>
+                            <span>Ferramentas</span>
+                        </h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center gap-2">
+                                <i data-feather="file-text"></i>
+                                <span>Word</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="sliders"></i>
+                                <span>PowerPoint</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="pen-tool"></i>
+                                <span>Figma</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="image"></i>
+                                <span>Canva</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="grid"></i>
+                                <span>Excel</span>
+                            </div>
+                        </div>
+
+                        <!-- Tecnologias e automações destacadas -->
+                        <h3 class="text-xl font-bold mt-8 mb-4 flex items-center gap-2">
+                            <i data-feather="zap"></i>
+                            <span>Tecnologias & Automação</span>
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-2">
+                                <i data-feather="activity" class="text-secondary-500 mt-1"></i>
+                                <span>OpenAI API — integração de modelos para geração de conteúdo e lógica
+                                    conversacional.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-feather="layers" class="text-secondary-500 mt-1"></i>
+                                <span>LLaMA 3 — experiência com fine-tuning e integração local quando aplicado (projetos
+                                    experimentais).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-feather="server" class="text-secondary-500 mt-1"></i>
+                                <span>Node.js & TypeScript — backend para APIs e integrações em tempo real (Express /
+                                    Socket.IO).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-feather="box" class="text-secondary-500 mt-1"></i>
+                                <span>Docker — containerização para deploy consistente e escalável.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-feather="zap" class="text-secondary-500 mt-1"></i>
+                                <span>n8n — orquestração de automações entre APIs, CRM e fluxos de atendimento.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-feather="git-branch" class="text-secondary-500 mt-1"></i>
+                                <span>Git & GitHub — versionamento, PRs e integração contínua simples.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-feather="shopping-bag" class="text-secondary-500 mt-1"></i>
+                                <span>Implementação de chatbots e sistemas de recomendação para sites comerciais (foco
+                                    em conversão).</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contato" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold mb-12 text-center">Entre em Contato</h2>
+
+                <div class="flex flex-col md:flex-row gap-12">
+                    <div class="md:w-full">
+                        <div class="bg-gray-50 p-8 rounded-xl h-full">
+                            <h3 class="text-xl font-bold mb-6">Informações de Contato</h3>
+
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-primary-100 text-primary-500 p-3 rounded-lg">
+                                        <i data-feather="mail"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">E-mail</h4>
+                                        <p class="text-gray-600">zc4i0manfio@gmail.com</p>
+                                        <button type="button" class="text-sm text-primary-500 hover:underline mt-1"
+                                            onclick="copyToClipboard('zc4i0manfio@gmail.com')">Copiar e-mail</button>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-primary-100 text-primary-500 p-3 rounded-lg">
+                                        <i data-feather="phone"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Telefone</h4>
+                                        <p class="text-gray-600">(15) 99726-2538</p>
+                                        <div class="flex items-center gap-3 mt-1">
+                                            <button type="button" class="text-sm text-primary-500 hover:underline"
+                                                onclick="copyToClipboard('15997262538')">Copiar número</button>
+                                            <a href="https://wa.me/5515997262538?text=Ol%C3%A1%2C%20vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre."
+                                                target="_blank"
+                                                class="text-sm bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md">Abrir
+                                                no WhatsApp</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-primary-100 text-primary-500 p-3 rounded-lg">
+                                        <i data-feather="map-pin"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Localização</h4>
+                                        <p class="text-gray-600">Votorantim – SP</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-primary-100 text-primary-500 p-3 rounded-lg">
+                                        <i data-feather="github"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">GitHub</h4>
+                                        <p class="text-gray-600"><a href="https://github.com/manfiox" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="text-primary-500 hover:underline">https://github.com/manfiox</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-primary-100 text-primary-500 p-3 rounded-lg">
+                                        <i data-feather="linkedin"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">LinkedIn</h4>
+                                        <p class="text-gray-600"><a
+                                                href="https://www.linkedin.com/in/caio-manfio-16971437b/"
+                                                target="_blank" rel="noopener noreferrer"
+                                                class="text-primary-500 hover:underline">https://www.linkedin.com/in/caio-manfio-16971437b/</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-bold text-white mb-2">Caio Manfio</div>
+                    <p class="text-gray-400">Desenvolvedor Web & Automação</p>
+                </div>
+
+                <div class="flex space-x-6">
+                    <a href="https://github.com/manfiox" target="_blank" rel="noopener noreferrer"
+                        class="text-gray-400 hover:text-white transition">
+                        <i data-feather="github" aria-hidden="true"></i>
+                        <span class="sr-only">GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/caio-manfio-16971437b/" target="_blank"
+                        rel="noopener noreferrer" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="linkedin" aria-hidden="true"></i>
+                        <span class="sr-only">LinkedIn</span>
+                    </a>
+                    <a href="mailto:zc4i0manfio@gmail.com" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="mail" aria-hidden="true"></i>
+                        <span class="sr-only">E-mail</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; <span id="copyrightYear">2023</span> Caio Manfio. Todos os direitos reservados.</p>
+                <p class="mt-2 text-sm">Desenvolvido por <a href="https://www.instagram.com/kaiobahh/"
+                        target="_blank"><strong>Caio Manfio</strong></a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5515997262538?text=Ol%C3%A1%2C%20vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre."
+        target="_blank"
+        class="fixed bottom-4 right-4 md:bottom-6 md:right-6 bg-green-500 hover:bg-green-600 text-white p-3 md:p-4 rounded-full shadow-lg flex items-center justify-center"
+        aria-label="Abrir WhatsApp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone">
+            <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12 1.38.43 2.73.93 4a2 2 0 0 1-.45 2.11L8.09 11.91a16 16 0 0 0 6 6l1.08-1.08a2 2 0 0 1 2.11-.45c1.27.5 2.62.81 4 .93A2 2 0 0 1 22 16.92z">
+            </path>
+        </svg>
+    </a>
+
+    <script>
+        // Initialize feather icons first so icon elements exist
+        try {
+            feather.replace();
+        } catch (err) {
+            console.warn('Feather icons not available:', err);
+        }
+
+        // Dark mode toggle (safe queries)
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        if (darkModeToggle) {
+            // Try multiple selectors: before feather.replace() icons exist as elements with data-feather;
+            // after replacement they are SVGs with classes like 'feather-moon' / 'feather-sun'.
+            let moonIcon = darkModeToggle.querySelector('[data-feather="moon"]') || darkModeToggle.querySelector('.feather-moon');
+            let sunIcon = darkModeToggle.querySelector('[data-feather="sun"]') || darkModeToggle.querySelector('.feather-sun');
+
+            // If feather hasn't been replaced yet, call it now to ensure SVGs exist for other parts of the page
+            try { feather.replace(); } catch (e) { /* ignore */ }
+
+            // Re-query after replacement in case the icons were swapped to SVGs
+            if (!moonIcon) moonIcon = darkModeToggle.querySelector('.feather-moon') || darkModeToggle.querySelector('[data-feather="moon"]');
+            if (!sunIcon) sunIcon = darkModeToggle.querySelector('.feather-sun') || darkModeToggle.querySelector('[data-feather="sun"]');
+
+            // Use stored preference or system preference
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (localStorage.getItem('darkMode') === 'true' || (!localStorage.getItem('darkMode') && prefersDark)) {
+                document.body.classList.add('dark-mode');
+                if (moonIcon) moonIcon.classList.add('hidden');
+                if (sunIcon) sunIcon.classList.remove('hidden');
+            } else {
+                document.body.classList.remove('dark-mode');
+                if (moonIcon) moonIcon.classList.remove('hidden');
+                if (sunIcon) sunIcon.classList.add('hidden');
+            }
+
+            // Toggle dark mode
+            darkModeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const isDarkMode = document.body.classList.contains('dark-mode');
+                localStorage.setItem('darkMode', isDarkMode);
+
+                // Toggle visibility for whichever icon nodes we found
+                if (moonIcon) moonIcon.classList.toggle('hidden');
+                if (sunIcon) sunIcon.classList.toggle('hidden');
+            });
+        }
+
+        // Mobile menu toggle (safe)
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        if (mobileMenuButton && mobileMenu) {
+            // set ARIA attributes
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+            mobileMenuButton.setAttribute('aria-controls', 'mobileMenu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    // enable animation classes
+                    mobileMenu.classList.add('show');
+                    if (mobileMenuOverlay) mobileMenuOverlay.classList.add('show');
+                    if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'true');
+                    // Focus no primeiro item do menu para acessibilidade
+                    try { 
+                        const first = mobileMenu.querySelector('a[role="menuitem"]');
+                        if (first) first.focus();
+                    } catch (e) { /* ignore */ }
+                } else {
+                    // remove animation classes then hide
+                    mobileMenu.classList.remove('show');
+                    if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('show');
+                    setTimeout(() => { mobileMenu.classList.add('hidden'); if (mobileMenuOverlay) mobileMenuOverlay.classList.add('hidden'); }, 440);
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                }
+
+                const menuIcon = mobileMenuButton.querySelector('i');
+                if (menuIcon) {
+                    if (mobileMenu.classList.contains('hidden')) {
+                        menuIcon.setAttribute('data-feather', 'menu');
+                    } else {
+                        menuIcon.setAttribute('data-feather', 'x');
+                    }
+                    feather.replace();
+                }
+            });
+
+            // Fechar via botão de fechar dentro do menu
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+            if (mobileMenuClose) {
+                mobileMenuClose.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.remove('show');
+                        if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('show');
+                        setTimeout(() => { mobileMenu.classList.add('hidden'); if (mobileMenuOverlay) mobileMenuOverlay.classList.add('hidden'); }, 440);
+                        mobileMenuButton.setAttribute('aria-expanded', 'false');
+                        const menuIcon = mobileMenuButton.querySelector('i');
+                        if (menuIcon) {
+                            menuIcon.setAttribute('data-feather', 'menu');
+                            feather.replace();
+                        }
+                        mobileMenuButton.focus();
+                    }
+                });
+            }
+
+            // Close mobile menu with ESC key for accessibility
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' || e.key === 'Esc') {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.remove('show');
+                        if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('show');
+                        setTimeout(() => { mobileMenu.classList.add('hidden'); if (mobileMenuOverlay) mobileMenuOverlay.classList.add('hidden'); }, 260);
+                        mobileMenuButton.setAttribute('aria-expanded', 'false');
+                        const menuIcon = mobileMenuButton.querySelector('i');
+                        if (menuIcon) {
+                            menuIcon.setAttribute('data-feather', 'menu');
+                            feather.replace();
+                        }
+                        mobileMenuButton.focus();
+                    }
+                }
+            });
+
+            // Click on overlay closes menu
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.remove('show');
+                        mobileMenuOverlay.classList.remove('show');
+                        setTimeout(() => { mobileMenu.classList.add('hidden'); mobileMenuOverlay.classList.add('hidden'); }, 440);
+                        mobileMenuButton.setAttribute('aria-expanded', 'false');
+                        const menuIcon = mobileMenuButton.querySelector('i');
+                        if (menuIcon) { menuIcon.setAttribute('data-feather', 'menu'); feather.replace(); }
+                        mobileMenuButton.focus();
+                    }
+                });
+            }
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#') return;
+
+                e.preventDefault();
+
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        const menuIcon = mobileMenuButton.querySelector('i');
+                        menuIcon.setAttribute('data-feather', 'menu');
+                        feather.replace();
+                    }
+                }
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Here you would normally send the form data to a server
+                // For this example, we'll just show an alert
+                alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
+                this.reset();
+            });
+        }
+
+        // Copy to clipboard function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copiado para a área de transferência: ' + text);
+            }).catch(err => {
+                console.error('Falha ao copiar: ', err);
+            });
+        }
+
+        // feather.replace() already called earlier; safe to call again to refresh dynamic icons
+        try { feather.replace(); } catch (e) { /* ignore */ }
+
+        // Atualizar ano do copyright dinamicamente
+        try {
+            const y = new Date().getFullYear();
+            const el = document.getElementById('copyrightYear');
+            if (el) el.textContent = y;
+        } catch (e) {
+            /* ignore */
+        }
+
+        // Page entrance animation: add 'enterable' to main areas and reveal with stagger
+        (function pageEntrance() {
+            try {
+                const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+                // Elements to animate: header, each direct section under main, footer
+                const headerEl = document.querySelector('header');
+                const footerEl = document.querySelector('footer');
+                const sections = Array.from(document.querySelectorAll('#main-content > section'));
+
+                const items = [];
+                if (headerEl) items.push(headerEl);
+                items.push(...sections);
+                if (footerEl) items.push(footerEl);
+
+                // Add base class
+                items.forEach(el => el.classList.add('enterable'));
+
+                if (prefersReduced) {
+                    // show immediately
+                    items.forEach(el => el.classList.add('show'));
+                    return;
+                }
+
+                // Stagger reveal
+                items.forEach((el, idx) => {
+                    const delay = 240 + idx * 160; // ms (slower entrance)
+                    setTimeout(() => el.classList.add('show'), delay);
+                });
+            } catch (e) { /* ignore */ }
+        })();
+    </script>
+</body>
+
+</html>
